@@ -4,8 +4,7 @@
     "description": "",
     "main": "api.js",
     "scripts": {
-        "start": "netlify-lambda serve src",
-        "build": "netlify-lambda build src",
+        "start": "node ./src/api.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
