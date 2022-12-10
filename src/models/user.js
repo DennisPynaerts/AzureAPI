@@ -9,3 +9,5 @@ const UserSchema = new mongoose.Schema({
 }, {
     collation: 'users'
 });
+
+module.exports = mongoose.model('User', UserSchema);
