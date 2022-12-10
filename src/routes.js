@@ -20,7 +20,7 @@ router.get('/tracks', async(req, res) => {
         console.log(e + 'het werkt niet!');
         res.sendStatus(500);
     }
-})
+});
 
 router.get('/tracks/:id', async(req, res) => {
     try {
