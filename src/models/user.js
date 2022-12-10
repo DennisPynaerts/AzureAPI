@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String },
     permissionlevel: [{ type: String }]
 }, {
-    collation: 'users'
+    collection: 'users'
 });
 
 module.exports = mongoose.model('User', UserSchema);

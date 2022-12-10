@@ -2,7 +2,10 @@ const express = require('express');
 const res = require('express/lib/response');
 const router = express.Router();
 const Tracks = require('./models/circuit');
-const Autos = require('./models/auto')
+const Autos = require('./models/auto');
+
+const auth = require("../middleware/auth.js");
+const { admin, gebruiker } = require("../middleware/roles.js");
 
 router.get('/', (req, res) => {
     console.log('Route / called')

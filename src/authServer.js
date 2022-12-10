@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const express = require('express');
+const jwt = require("jsonwebtoken");
+const express = require("express");
 const users = require('./models/user');
 const router = express.Router();
 
@@ -9,17 +9,16 @@ router.post('/user/auth', async(req, res) => {
         if (error) res.status(401).send(error);
         else {
             if (!user || !req.body.password || user.password != req.body.password)
-                res.status(401).send('Invalid user or password');
+                res.status(401).send("Invalid user or password");
             else {
                 console.log(user.permissionlevel);
                 const token = jwt.sign({
                     id: user.email,
                     roles: user.permissionlevel,
                 }, "jwtPrivateKey", { expiresIn: "15m" });
-                res.status(200).send(user.email + "gevonden\n" + "token: " + token);
+                res.status(200).send(user.email + " gevonden \n" + "token: " + token);
             }
         }
     })
 });
-
 module.exports = router;
