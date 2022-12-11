@@ -6,6 +6,7 @@ const Autos = require('./models/auto');
 
 const auth = require("../middleware/auth.js");
 const { admin, gebruiker } = require("../middleware/roles.js");
+const { json } = require('express/lib/response');
 
 router.get('/', (req, res) => {
     console.log('Route / called')
@@ -115,10 +116,10 @@ router.get('/autos/:id/modellen', async(req, res) => {
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
-        console.log('find models by carId');
-        res.send(await Autos.findById(req.params.id).modellen);
+        console.log(JSON.stringify(await Autos.findById(req.params.id).modellen));
+        res.send(await Autos.findById(req.params.id));
     } catch (e) {
-        console.log(e + 'op id zoeken werkt niet');
+        console.log(e + ' op id zoeken werkt niet');
         res.sendStatus(500);
     }
 });

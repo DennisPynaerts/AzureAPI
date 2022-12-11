@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const autoSchema = new mongoose.Schema({
-    autos: [{
+    autos: {
         merkNaam: String,
         land: String,
         modellen: {
@@ -12,7 +12,7 @@ const autoSchema = new mongoose.Schema({
             bouwjaar: Number,
             handling: Number
         }
-    }]
+    }
 }, {
     collection: 'Cars'
 })

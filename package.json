@@ -5,6 +5,7 @@
     "main": "api.js",
     "scripts": {
         "start": "node ./src/api.js",
+        "local": "npx nodemon src/api.js",
         "test": "mocha --timeout 10000"
     },
     "repository": {
