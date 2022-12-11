@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const tracksSchema = new mongoose.Schema({
-    tracks: [{
+    tracks: {
         id: Number,
         naam: String,
         land: String
-    }]
+    }
 }, {
     collection: 'Tracks',
 });
