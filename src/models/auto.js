@@ -4,14 +4,14 @@ const autoSchema = new mongoose.Schema({
     autos: [{
         merkNaam: String,
         land: String,
-        modellen: [{
+        modellen: {
             modelNaam: String,
             PI: Number,
             klasse: String,
             prijs: Number,
             bouwjaar: Number,
             handling: Number
-        }]
+        }
     }]
 }, {
     collection: 'Cars'
