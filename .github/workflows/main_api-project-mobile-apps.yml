@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - API-Project-Mobile-Apps
 on:
   push:
     branches:
-      - main
+      - testbranch
   workflow_dispatch:
 
 jobs:
