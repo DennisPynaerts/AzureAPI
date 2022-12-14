@@ -42,13 +42,15 @@ router.get('/tracks/:id', async(req, res) => {
 });
 
 router.post('/tracks/create', async(req, res) => {
-    console.log('tracks create', req.body);
+    console.log('tracks create', req.hasBody, req.body);
+    console.log('tracks create', req.hasBody, req.body.naam);
+    console.log('tracks create', req.hasBody, req.body.land);
     try {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
-        res.send(await Tracks.create({...req.json() }));
+        res.send(await Tracks.create(req.body));
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
