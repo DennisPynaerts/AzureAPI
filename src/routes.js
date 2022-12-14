@@ -6,7 +6,7 @@ const Autos = require('./models/auto');
 
 const auth = require("../middleware/auth.js");
 const { admin, gebruiker } = require("../middleware/roles.js");
-const { json } = require('express/lib/response');
+const { json, append } = require('express/lib/response');
 
 router.get('/', (req, res) => {
     console.log('Route / called')
@@ -42,13 +42,13 @@ router.get('/tracks/:id', async(req, res) => {
 });
 
 router.post('/tracks/create', async(req, res) => {
-    console.log('tracks create');
+    console.log('tracks create', req.body);
     try {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
-        res.send(await Tracks.create(req.body));
+        res.send(await Tracks.create({...req.json() }));
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
