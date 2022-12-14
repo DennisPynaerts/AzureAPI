@@ -160,7 +160,7 @@ router.delete('/autos/:id', async(req, res) => {
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
-        res.send(await Autos.findById(req.params.id));
+        res.send(await Autos.findByIdAndDelete(req.params.id));
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
