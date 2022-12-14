@@ -1,13 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const tracksSchema = new mongoose.Schema({
-    tracks: {
-        id: Number,
-        naam: String,
-        land: String
-    }
+    id: Number,
+    naam: String,
+    land: String
 }, {
     collection: 'Tracks',
-});
+})
 
-module.exports = mongoose.model('Tracks', tracksSchema);
+module.exports = mongoose.model('Tracks', tracksSchema)
