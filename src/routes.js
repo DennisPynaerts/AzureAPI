@@ -228,7 +228,7 @@ router.put('/modellen/update/:id', async(req, res) => {
     }
 });
 
-router.delete('/modellen/:id', async(req, res) => {
+router.delete('/modellen/delete/:id', async(req, res) => {
     try {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
