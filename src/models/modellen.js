@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 
 const modelSchema = new mongoose.Schema({
-    modellen: {
-        modelNaam: String,
-        PI: Number,
-        klasse: String,
-        prijs: Number,
-        bouwjaar: Number,
-        handling: Number,
-        merkId: String,
-    }
+    modelNaam: String,
+    PI: Number,
+    klasse: String,
+    prijs: Number,
+    bouwjaar: Number,
+    handling: Number,
+    merkId: String,
 }, {
     collection: 'Modellen'
 })
