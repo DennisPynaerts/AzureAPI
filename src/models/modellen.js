@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const autoSchema = new mongoose.Schema({
-    merkNaam: String,
-    land: String,
+const modelSchema = new mongoose.Schema({
     modellen: {
         modelNaam: String,
         PI: Number,
@@ -12,8 +10,8 @@ const autoSchema = new mongoose.Schema({
         handling: Number
     }
 }, {
-    collection: 'Cars'
+    collection: 'Modellen'
 })
 
 
-module.exports = mongoose.model('Cars', autoSchema);
+module.exports = mongoose.model('Modellen', modelSchema);
