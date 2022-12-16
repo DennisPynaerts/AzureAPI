@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     res.send('<h1>API voor project van Mobiele Applicaties</h1>');
 });
 
+
 router.get('/tracks', async(req, res) => {
     try {
         console.log('/tracks route called');
@@ -85,6 +86,7 @@ router.delete('/tracks/delete/:id', async(req, res) => {
         res.sendStatus(500);
     }
 });
+
 
 router.get('/autos', async(req, res) => {
     try {
@@ -157,7 +159,7 @@ router.put('/autos/update/:id', async(req, res) => {
     }
 });
 
-router.delete('/autos/:id', async(req, res) => {
+router.delete('/autos/delete/:id', async(req, res) => {
     try {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
