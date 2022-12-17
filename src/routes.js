@@ -53,6 +53,8 @@ router.post('/tracks/create', async(req, res) => {
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
+        // res.setHeader("x-powered-by", "Express");
+        // res.setHeader("Access-control-allow-methods", "GET, HEAD, OPTIONS, POST, PUT");
         res.send(await Tracks.create(req.body));
     } catch (e) {
         console.log(e);
