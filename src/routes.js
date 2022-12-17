@@ -44,7 +44,6 @@ router.get('/tracks/:id', async(req, res) => {
     }
 });
 
-[CrossOrigin]
 router.post('/tracks/create', async(req, res) => {
     console.log('tracks create', req.hasBody, req.body);
     console.log('tracks create', req.hasBody, req.body.naam);
