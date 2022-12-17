@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(router);
 app.use(authRouter);
+app.use(cors());
 
 mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
