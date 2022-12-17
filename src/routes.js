@@ -53,6 +53,13 @@ router.post('/tracks/create', async(req, res) => {
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
         res.setHeader("Access-Control-Allow-Headers", "content-type");
+        res.setHeader("x-powered-by", "Express");
+        res.setHeader("Content-type", "application/json; charset=utf-8");
+        res.setHeader("Content-length", "65");
+        res.setHeader("etag", W / "41-qGEkHZ4/ymYztULVcu7mO1zzSrQ");
+        res.setHeader("date", `${Date.now()}`);
+        res.setHeader("x-envoy-upstream-service-time", "185");
+        res.setHeader("servere", "railway");
         res.send(await Tracks.create(req.body));
     } catch (e) {
         console.log(e);
