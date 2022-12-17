@@ -52,10 +52,7 @@ router.post('/tracks/create', async(req, res) => {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
-        // res.setHeader("Access-Control-Allow-Headers", "content-type");
-        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-        next();
+        res.setHeader("Access-Control-Allow-Headers", "content-type");
         res.send(await Tracks.create(req.body));
     } catch (e) {
         console.log(e);
@@ -158,21 +155,6 @@ router.put('/autos/update/:id', async(req, res) => {
         res.send(await Autos.findByIdAndUpdate(req.params.id, { $set: req.body }));
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
-    }
-});
-
-// WERKT NIET
-router.patch('/autos/modellen/:id', async(req, res) => {
-    console.log('create model for modelarray');
-    try {
-        res.setHeader("Access-Control-Allow-Origin", "*")
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        res.setHeader("Access-Control-Max-Age", "1800");
-        res.setHeader("Access-Control-Allow-Headers", "content-type");
-        res.send(await Autos.findByIdAndUpdate(req.params.id, { $set: req.body }));
-    } catch (e) {
-        console.log(e + ' patch werkt niet!');
         res.sendStatus(500);
     }
 });
