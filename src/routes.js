@@ -52,7 +52,9 @@ router.post('/tracks/create', async(req, res) => {
         res.setHeader("Access-Control-Allow-Origin", "*")
         res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Max-Age", "1800");
-        res.setHeader("Access-Control-Allow-Headers", "content-type");
+        // res.setHeader("Access-Control-Allow-Headers", "content-type");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
         next();
         res.send(await Tracks.create(req.body));
     } catch (e) {
