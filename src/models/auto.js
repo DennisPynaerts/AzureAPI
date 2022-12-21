@@ -9,7 +9,8 @@ const autoSchema = new mongoose.Schema({
         klasse: String,
         prijs: Number,
         bouwjaar: Number,
-        handling: Number
+        handling: Number,
+        merkId: String
     }]
 }, {
     collection: 'Cars'
