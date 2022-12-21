@@ -131,6 +131,24 @@ router.get('/autos/:id/modellen', async function(req, res) {
     }
 });
 
+router.get('/autos/:id/modellen/:modelId', async function(req, res) {
+    try {
+        res.setHeader("Access-Control-Allow-Origin", "*")
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Max-Age", "1800");
+        res.setHeader("Access-Control-Allow-Headers", "content-type");
+        console.log('find by id');
+        const auto = await Autos.findById(req.params.id);
+        const modellen = auto.modellen;
+        const model = await modellen.filter(x => x._id === req.params.modelId);
+        console.log(modellen[0]._id);
+        res.send(model);
+    } catch (e) {
+        console.log(e + 'op id zoeken werkt niet');
+        res.sendStatus(500);
+    }
+});
+
 router.post('/autos/create', async(req, res) => {
     console.log('tracks create');
     try {
