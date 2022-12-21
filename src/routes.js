@@ -141,8 +141,8 @@ router.get('/autos/:id/modellen/:modelId', async function(req, res) {
         const auto = await Autos.findById(req.params.id);
         const modellen = auto.modellen;
         const model = await modellen.filter(x => x._id.equals(req.params.modelId));
-        console.log(modellen[0]._id + " req=" + req.params.modelId);
-        console.log(modellen[0]._id + " req=" + req.params.modelId);
+        console.log("gevonden model " + modellen[0]._id + " req = " + req.params.modelId);
+        console.log(modellen);
         res.send(model[0]);
     } catch (e) {
         console.log(e + 'op id zoeken werkt niet');

@@ -4,7 +4,6 @@ const autoSchema = new mongoose.Schema({
     merkNaam: String,
     land: String,
     modellen: [{
-        _id: String,
         modelNaam: String,
         PI: Number,
         klasse: String,
