@@ -150,6 +150,20 @@ router.get('/autos/:id/modellen/:modelId', async function(req, res) {
     }
 });
 
+router.put('/autos/modellen/update/:id', async(req, res) => {
+    console.log('auto model create');
+    try {
+        res.setHeader("Access-Control-Allow-Origin", "*")
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Max-Age", "1800");
+        res.setHeader("Access-Control-Allow-Headers", "content-type");
+        res.send(await Autos.findByIdAndUpdate(req.params.id, { $set: req.body }));
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
 router.post('/autos/create', async(req, res) => {
     console.log('tracks create');
     try {
